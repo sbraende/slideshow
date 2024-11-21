@@ -1,0 +1,79 @@
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+main {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-large);
+}
+
+button {
+  width: 150px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  font-size: var(--font-size-base);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d00000;
+}
+
+.slideshow {
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.slideshow__image-container {
+  width: 100%;
+  flex-basis: 60%;
+  border: 1px solid blue;
+}
+
+.slideshow__image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.slideshow__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 200px;
+  padding: var(--spacing-medium);
+}
+
+.slideshow__bullets-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slideshow__text-container {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.slideshow__caption {
+  padding-bottom: var(--spacing-small);
+}
+
+.slideshow__description {
+  padding-bottom: var(--spacing-medium);
+}
+
+.slideshow__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
