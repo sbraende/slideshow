@@ -2,52 +2,62 @@ const slideshowArray = [
   {
     name: "Half Life 2",
     src: "./assets/images/half-life2.jpg",
-    description: "Half Life 2 is a great game. Love it!",
+    description:
+      "Half-Life 2 is a legendary sci-fi first-person shooter where players, as Gordon Freeman, fight the alien Combine in a dystopian world. Known for its physics-based puzzles, gripping story, and innovative gameplay, it redefined gaming and remains a classic.",
   },
   {
     name: "Ghost of Tsushima",
     src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    description:
+      "Ghost of Tsushima is an open-world action-adventure set in 13th-century Japan during a Mongol invasion. Players control Jin Sakai, a samurai who must embrace unconventional tactics to protect Tsushima. Known for its stunning visuals, combat, and gripping story.",
   },
   {
-    name: "Ghost of Tsushima",
-    src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    name: "Baldur's Gate 3",
+    src: "./assets/images/baldurs-gate3.jpeg",
+    description:
+      "Baldur's Gate 3 is a Dungeons & Dragons-inspired RPG set in the Forgotten Realms. Players make choices in combat, dialogue, and exploration, shaping a story of battling mind flayers and forging alliances. It offers deep characters, co-op play, and vast freedom.",
   },
   {
-    name: "Ghost of Tsushima",
-    src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    name: "Minecraft",
+    src: "./assets/images/minecraft.jpg",
+    description:
+      "Minecraft is a sandbox game where players explore, build, and survive in a blocky world. Players can mine resources, craft items, battle enemies, and create structures, offering endless creative possibilities and multiplayer fun.",
   },
   {
-    name: "Ghost of Tsushima",
-    src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    name: "God of War",
+    src: "./assets/images/godofwar.webp",
+    description:
+      "God of War is an action-adventure game following Kratos, a Spartan warrior turned god, as he embarks on a journey of revenge, redemption, and fatherhood. Mixing brutal combat, puzzles, and Norse mythology, it’s a story-driven epic.",
   },
   {
-    name: "Ghost of Tsushima",
-    src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    name: "Need for Speed - Road Challange",
+    src: "./assets/images/need-for-speed-road-challange.webp",
+    description:
+      "Need for Speed: Road Challenge (also known as Need for Speed: Porsche Unleashed) is a racing game focused on Porsche cars. Players race through various tracks, unlock new cars, and experience a mix of time trials and competitive races.",
   },
   {
-    name: "Ghost of Tsushima",
-    src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    name: "Red Dead Redemption 2",
+    src: "./assets/images/rd2.jpg",
+    description:
+      "Red Dead Redemption 2 is an open-world action-adventure game set in the late 1800s. Players control Arthur Morgan, an outlaw in the Van der Linde gang, navigating a vast, detailed world filled with story-driven missions, exploration, and immersive gameplay",
   },
   {
-    name: "Ghost of Tsushima",
-    src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    name: "Sly Cooper 3",
+    src: "./assets/images/sly-cooper.avif",
+    description:
+      "Sly Cooper 3: Honor Among Thieves is an action-adventure game where players control Sly Cooper, a raccoon thief, alongside his gang. They embark on a mission to recover a stolen treasure while using stealth, platforming, and unique character abilities.",
   },
   {
-    name: "Ghost of Tsushima",
-    src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    name: "Stardew Valley",
+    src: "./assets/images/stardew_valley.avif",
+    description:
+      "Stardew Valley is a relaxing farming simulation game where players restore a run-down farm, grow crops, raise animals, and build relationships. It features exploration, crafting, and community-focused storytelling.",
   },
   {
-    name: "Ghost of Tsushima",
-    src: "./assets/images/Ghost_of_tsunami.webp",
-    description: "Ghost of thushima is a great game. Love it!",
+    name: "The Legend of Zelda: Ocarina of Time",
+    src: "./assets/images/zelda_ocarina_1.webp",
+    description:
+      "Zelda: Ocarina of Time is an action-adventure game where Link must save Hyrule from Ganondorf. Players explore, solve puzzles, and use the magical ocarina to manipulate time in a richly immersive world.",
   },
 ];
 
