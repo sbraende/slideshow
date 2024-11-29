@@ -1,3 +1,4 @@
+// SLIDESHOW ARRAY
 const slideshowArray = [
   {
     name: "Half Life 2",
@@ -61,40 +62,39 @@ const slideshowArray = [
   },
 ];
 
-// Get elements
+// SELECT ELEMENTS
 const bulletContainer = document.querySelector(".slideshow__bullets-container");
 const buttonNext = document.querySelector(".slideshow__next");
 const buttonPrevious = document.querySelector(".slideshow__previous");
+const slideshowImage = document.querySelector(".slideshow__image");
+const slideshowTitle = document.querySelector(".slideshow__caption");
+const imageCount = document.querySelector(".slideshow__imagecount");
+const slideshowDescription = document.querySelector(".slideshow__description");
 
-// Global variables
+// GLOBAL VARIABLES
 let count = 0;
 
-// Main function
-renderSlideshow(count);
+// LOAD SLIDESHOW
+document.addEventListener("DOMContentLoaded", renderSlideshow(count));
 
 function renderSlideshow(elementNumber) {
-  const slideshowImage = document.querySelector(".slideshow__image");
+  // Add content to current page.
   slideshowImage.src = slideshowArray[elementNumber].src;
-
-  const slideshowTitle = document.querySelector(".slideshow__caption");
   slideshowTitle.textContent = slideshowArray[elementNumber].name;
-
-  const slideshowDescription = document.querySelector(
-    ".slideshow__description"
-  );
   slideshowDescription.textContent = slideshowArray[elementNumber].description;
-
-  const imageCount = document.querySelector(".slideshow__imagecount");
   imageCount.textContent = `${count + 1} out of ${slideshowArray.length}`;
 
-  bulletPoints();
+  // Render pulletPoints to page
+  renderBulletPoints();
 
+  // Toggle visibility Previous and Next button based on start or end of slideshow.
+  // Hide previuos button if this is the first slide
   if (count === 0) {
     buttonPrevious.style.visibility = "hidden";
   } else {
     buttonPrevious.style.visibility = "visible";
   }
-
+  // Hide next button if it is the last slide.
   if (count === slideshowArray.length - 1) {
     buttonNext.style.visibility = "hidden";
   } else {
@@ -102,17 +102,21 @@ function renderSlideshow(elementNumber) {
   }
 }
 
-buttonNext.addEventListener("click", () => {
-  count++;
-  renderSlideshow(count);
-});
-
+// EVENT LISTENERS
+// Previous slide button event
 buttonPrevious.addEventListener("click", () => {
   count--;
   renderSlideshow(count);
 });
 
-function bulletPoints() {
+// Next slide button event
+buttonNext.addEventListener("click", () => {
+  count++;
+  renderSlideshow(count);
+});
+
+// RENDER BULLETPOINTS
+function renderBulletPoints() {
   const bullets = bulletContainer.children;
   if (bullets) {
     const childeren = document.querySelectorAll(".slideshow__bulletpoint");
