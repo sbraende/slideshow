@@ -63,21 +63,40 @@ const slideshowArray = [
 ];
 
 // SELECT ELEMENTS
-const bulletContainer = document.querySelector(".slideshow__bullets-container");
-const buttonNext = document.querySelector(".slideshow__next");
-const buttonPrevious = document.querySelector(".slideshow__previous");
 const slideshowImage = document.querySelector(".slideshow__image");
+const bulletContainer = document.querySelector(".slideshow__bullets-container");
 const slideshowTitle = document.querySelector(".slideshow__caption");
-const imageCount = document.querySelector(".slideshow__imagecount");
 const slideshowDescription = document.querySelector(".slideshow__description");
+const buttonPrevious = document.querySelector(".slideshow__previous");
+const imageCount = document.querySelector(".slideshow__imagecount");
+const buttonNext = document.querySelector(".slideshow__next");
 
 // GLOBAL VARIABLES
 let count = 0;
 
 // LOAD SLIDESHOW
-document.addEventListener("DOMContentLoaded", renderSlideshow(count));
+document.addEventListener("DOMContentLoaded", () => renderSlideshow(count));
 
-function renderSlideshow(elementNumber) {
+// RENDER BULLETPOINTS
+const renderBulletPoints = () => {
+  // Remove already rendered bullets.
+  bulletContainer.textContent = "";
+
+  // Create bullet per item in slideshowArray.
+  slideshowArray.forEach((e, index) => {
+    const bulletButton = document.createElement("button");
+    bulletButton.classList.add("slideshow__bulletpoint");
+    bulletContainer.append(bulletButton);
+
+    // Highlight current bullet with current slide.
+    if (index === count) {
+      bulletButton.classList.add("slideshow__bulletpoint--active");
+    }
+  });
+};
+
+// RENDER SLIDESHOW
+const renderSlideshow = (elementNumber) => {
   // Add content to current page.
   slideshowImage.src = slideshowArray[elementNumber].src;
   slideshowTitle.textContent = slideshowArray[elementNumber].name;
@@ -100,9 +119,9 @@ function renderSlideshow(elementNumber) {
   } else {
     buttonNext.style.visibility = "visible";
   }
-}
+};
 
-// EVENT LISTENERS
+// PREVIOUS AND NEXT EVENT LISTENERS
 // Previous slide button event
 buttonPrevious.addEventListener("click", () => {
   count--;
@@ -114,24 +133,3 @@ buttonNext.addEventListener("click", () => {
   count++;
   renderSlideshow(count);
 });
-
-// RENDER BULLETPOINTS
-function renderBulletPoints() {
-  const bullets = bulletContainer.children;
-  if (bullets) {
-    const childeren = document.querySelectorAll(".slideshow__bulletpoint");
-    childeren.forEach((bulletpointButton) => {
-      bulletpointButton.remove();
-    });
-  }
-
-  for (let index = 0; index < slideshowArray.length; index++) {
-    const bulletButton = document.createElement("button");
-    bulletButton.classList.add("slideshow__bulletpoint");
-    bulletContainer.append(bulletButton);
-
-    if (index === count) {
-      bulletButton.classList.add("slideshow__bulletpoint--active");
-    }
-  }
-}
