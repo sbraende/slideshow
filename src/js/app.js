@@ -1,3 +1,4 @@
+// SLIDESHOW ARRAY
 const slideshowArray = [
   {
     name: "Half Life 2",
@@ -61,73 +62,74 @@ const slideshowArray = [
   },
 ];
 
-// Get elements
+// SELECT ELEMENTS
+const slideshowImage = document.querySelector(".slideshow__image");
 const bulletContainer = document.querySelector(".slideshow__bullets-container");
-const buttonNext = document.querySelector(".slideshow__next");
+const slideshowTitle = document.querySelector(".slideshow__caption");
+const slideshowDescription = document.querySelector(".slideshow__description");
 const buttonPrevious = document.querySelector(".slideshow__previous");
+const imageCount = document.querySelector(".slideshow__imagecount");
+const buttonNext = document.querySelector(".slideshow__next");
 
-// Global variables
+// GLOBAL VARIABLES
 let count = 0;
 
-// Main function
-renderSlideshow(count);
+// LOAD SLIDESHOW
+document.addEventListener("DOMContentLoaded", () => renderSlideshow(count));
 
-function renderSlideshow(elementNumber) {
-  const slideshowImage = document.querySelector(".slideshow__image");
+// RENDER BULLETPOINTS
+const renderBulletPoints = () => {
+  // Remove already rendered bullets.
+  bulletContainer.textContent = "";
+
+  // Create bullet per item in slideshowArray.
+  slideshowArray.forEach((e, index) => {
+    const bulletButton = document.createElement("button");
+    bulletButton.classList.add("slideshow__bulletpoint");
+    bulletContainer.append(bulletButton);
+
+    // Highlight current bullet with current slide.
+    if (index === count) {
+      bulletButton.classList.add("slideshow__bulletpoint--active");
+    }
+  });
+};
+
+// RENDER SLIDESHOW
+const renderSlideshow = (elementNumber) => {
+  // Add content to current page.
   slideshowImage.src = slideshowArray[elementNumber].src;
-
-  const slideshowTitle = document.querySelector(".slideshow__caption");
   slideshowTitle.textContent = slideshowArray[elementNumber].name;
-
-  const slideshowDescription = document.querySelector(
-    ".slideshow__description"
-  );
   slideshowDescription.textContent = slideshowArray[elementNumber].description;
-
-  const imageCount = document.querySelector(".slideshow__imagecount");
   imageCount.textContent = `${count + 1} out of ${slideshowArray.length}`;
 
-  bulletPoints();
+  // Render pulletPoints to page
+  renderBulletPoints();
 
+  // Toggle visibility Previous and Next button based on start or end of slideshow.
+  // Hide previuos button if this is the first slide
   if (count === 0) {
     buttonPrevious.style.visibility = "hidden";
   } else {
     buttonPrevious.style.visibility = "visible";
   }
-
+  // Hide next button if it is the last slide.
   if (count === slideshowArray.length - 1) {
     buttonNext.style.visibility = "hidden";
   } else {
     buttonNext.style.visibility = "visible";
   }
-}
+};
 
-buttonNext.addEventListener("click", () => {
-  count++;
-  renderSlideshow(count);
-});
-
+// PREVIOUS AND NEXT EVENT LISTENERS
+// Previous slide button event
 buttonPrevious.addEventListener("click", () => {
   count--;
   renderSlideshow(count);
 });
 
-function bulletPoints() {
-  const bullets = bulletContainer.children;
-  if (bullets) {
-    const childeren = document.querySelectorAll(".slideshow__bulletpoint");
-    childeren.forEach((bulletpointButton) => {
-      bulletpointButton.remove();
-    });
-  }
-
-  for (let index = 0; index < slideshowArray.length; index++) {
-    const bulletButton = document.createElement("button");
-    bulletButton.classList.add("slideshow__bulletpoint");
-    bulletContainer.append(bulletButton);
-
-    if (index === count) {
-      bulletButton.classList.add("slideshow__bulletpoint--active");
-    }
-  }
-}
+// Next slide button event
+buttonNext.addEventListener("click", () => {
+  count++;
+  renderSlideshow(count);
+});
